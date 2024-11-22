@@ -8,7 +8,7 @@ from OutputReader import outputDataParser
 import itertools
 
 # constants
-CONFIG_FILE = "config2.cfg"
+CONFIG_FILE = "config.cfg"
 CLI_PORT = "COM5"
 DATA_PORT = "COM3"
 DEBUG = False
