@@ -180,7 +180,7 @@ def main():
     scatter_3d = ax4.scatter([], [], [], c=[], cmap='viridis')
     ax4.tick_params(axis='both', which='major', labelsize=7)
 
-    def update():
+    def update(frame):
         dataOk, detObj = processData(dataPort)
         if dataOk:
              # Convert data to NumPy arrays
