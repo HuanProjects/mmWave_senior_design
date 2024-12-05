@@ -78,7 +78,7 @@ def update_plot(frame, frame_deque, ax1, ax2, limits, norm, cmap):
     target_ids = np.array([])
 
     if len(frame_deque) >= 1:
-        # Retrieve the previous frame (or current if only one exists)
+        # Retrieve the previous frame
         current_frame = frame_deque[-2]
 
         if current_frame['cloud'] is not None:
