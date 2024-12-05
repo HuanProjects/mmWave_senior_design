@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 from OutputReader import record_frames, process_frame
-from plot_helpers import setup_plot, update_plot  # Assuming these are saved in `plot_helpers.py`
+from plot_helpers import setup_plot, update_plot
 import time 
 import re
 from collections import deque
