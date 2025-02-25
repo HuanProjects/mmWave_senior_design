@@ -17,10 +17,7 @@ def uint32_converter(data):
     :param data: List of 4 integers representing the bytes in little-endian format.
     :return: 32-bit unsigned integer.
     """
-    return (data[0] +
-            data[1] * 256 + 
-            data[2] * 65536 +
-            data[3] * 16777216)
+    return struct.unpack('<I', bytes(data))[0]
 
 # Function to convert a 2-byte little-endian array to a signed 16-bit integer
 def int16_converter(data):

@@ -2,21 +2,22 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 from OutputReader import record_frames, process_frame
-from plot_helpers import setup_plot, update_plot
+from plot_helpers import setup_plot, update_plot  # Assuming these are saved in `plot_helpers.py`
 import time 
 import re
 from collections import deque
+import serial
 
 # Configuration
-CLI_PORT = 'COM5'
-DATA_PORT = 'COM3'
+CLI_PORT = 'COM7'
+DATA_PORT = 'COM6'
 configFileName = 'config2.cfg'
 
 def setup_sensor(configFileName):
     """
     Set up the radar sensor with the given configuration.
     """
-    import serial
+
     cli_port = serial.Serial(CLI_PORT, 115200)
     data_port = serial.Serial(DATA_PORT, 921600)
 
@@ -84,7 +85,6 @@ def main():
         'target_ids': None,
         'presence': None
     })
-
 
     try:
         # Initialize FuncAnimation
