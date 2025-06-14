@@ -7,15 +7,15 @@ It also maps each tracked target to an 8 × 8 LED grid via an attached Ardu
 
 ## 1. High‑level purpose
 
-```text
- ┌───────────────┐        config cmds       ┌───────────────┐
- │  PC (Python)  ├──────────────────────────►│  Radar (CLI)  │
- │               │                          └───────────────┘
- │    GUI +      │ bin frames @921 600 baud  ┌───────────────┐
- │  worker‑thread├──────────────────────────►│  Radar (DATA) │
- │               │<──── grid (“gx gy …”) ───┤  Arduino      │
- └───────────────┘        @115 200 baud      └───────────────┘
-```
+graph LR
+    PC[PC<br/>(Python GUI)]
+    Radar_CLI[Radar<br/>CLI port]
+    Radar_DATA[Radar<br/>DATA port]
+    Arduino[Arduino]
+
+    PC -- "115 200 baud<br/>(one‑time config)" --> Radar_CLI
+    Radar_DATA -- "921 600 baud<br/>(continuous frames)" --> PC
+    PC -- "115 200 baud<br/>(grid indices)" --> Arduino
 
 1. **Config phase:** `load_config()` streams `vital_signs_ISK.cfg` to the radar’s CLI port.  
 2. **Acquisition phase:** a QThread reads frames at 921 600 baud, the GUI plots the previous frame (one‑frame latency) and sends the quantised (x,y) grid coordinates to an Arduino.
