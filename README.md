@@ -8,13 +8,13 @@ It also maps each tracked target to an 8 × 8 LED grid via an attached Ardu
 ## 1. High‑level purpose
 
 ```text
-                 PC (Python GUI)
-                 │
-                 │ 115 200 baud  ──►  Radar (CLI port)     ← one‑time config file
-                 │
-                 │ 921 600 baud  ◄──  Radar (DATA port)    ← continuous frames
-                 │
-                 │ 115 200 baud  ──►  Arduino              ← 8×8 grid indices
+    PC (Python GUI)
+     │
+     │ 115 200 baud  ──►  Radar (CLI port)     ← one‑time config file
+     │
+     │ 921 600 baud  ◄──  Radar (DATA port)    ← continuous frames
+     │
+     │ 115 200 baud  ──►  Arduino              ← 8×8 grid indices
 ```
 
 1. **Config phase:** `load_config()` streams `vital_signs_ISK.cfg` to the radar’s CLI port.  
